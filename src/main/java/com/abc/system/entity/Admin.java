@@ -1,28 +1,32 @@
-package com.abc.system.dto;
+package com.abc.system.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
- * @since 2/12/22
+ * @since 2/13/22
  **/
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
-public class CustomerDTO implements Serializable {
+@Setter
+@Entity
+public class Admin implements Serializable {
 
-    private String code;
+    @Id
+    private String id;
     private String name;
     private String address;
     private String email;
-    private String gender;
     private String contact;
     private String password;
+
 }

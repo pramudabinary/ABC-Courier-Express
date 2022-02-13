@@ -9,20 +9,19 @@ import java.io.Serializable;
 
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
- * @since 2/12/22
+ * @since 2/13/22
  **/
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-public class CustomerDTO implements Serializable {
+public class AdminDTO implements Serializable {
 
-    private String code;
+    private String id;
     private String name;
     private String address;
     private String email;
-    private String gender;
     private String contact;
     private String password;
 }
