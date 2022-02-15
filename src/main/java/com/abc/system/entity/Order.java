@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.io.Serializable;
+import javax.persistence.*;
 
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
@@ -19,12 +17,22 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
-public class Order implements Serializable {
+public class Order implements SuperEntity {
 
     @Id
-    private String order_id;
-    private String customer_name;
-    private String customer_address;
-    private String receiver_name;
-    private String parcel_weight;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
+    private String orderId;
+
+    @Column(name = "customer_name")
+    private String customerName;
+
+    @Column(name = "customer_address")
+    private String customerAddress;
+
+    @Column(name = "receiver_name")
+    private String receiverName;
+
+    @Column(name = "parcel_weight")
+    private String parcelWeight;
 }

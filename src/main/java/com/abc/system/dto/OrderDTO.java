@@ -18,10 +18,10 @@ import java.io.Serializable;
 @Getter
 public class OrderDTO implements Serializable {
 
-    private String order_id;
-    private String customer_name;
-    private String customer_address;
-    private String receiver_name;
-    private String parcel_weight;
+    private String orderId;
+    private String customerName;
+    private String customerAddress;
+    private String receiverName;
+    private String parcelWeight;
 
 }

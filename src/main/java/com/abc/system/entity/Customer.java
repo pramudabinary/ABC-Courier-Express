@@ -18,7 +18,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Entity
-public class Customer {
+public class Customer implements SuperEntity {
 
     @Id
     private String code;

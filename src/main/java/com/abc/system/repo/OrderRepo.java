@@ -1,18 +1,14 @@
 package com.abc.system.repo;
 
-import com.abc.system.entity.Customer;
+import com.abc.system.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
- * @since 2/12/22
+ * @since 2/15/22
  **/
 
 @Repository
-public interface CustomerRepo extends JpaRepository<Customer, String> {
-
-    Optional<Customer> findCustomerByName(String name);
+public interface OrderRepo extends JpaRepository<Order, String> {
 }

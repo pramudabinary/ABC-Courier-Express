@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
@@ -19,7 +18,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
-public class Admin implements Serializable {
+public class Admin implements SuperEntity {
 
     @Id
     private String id;
