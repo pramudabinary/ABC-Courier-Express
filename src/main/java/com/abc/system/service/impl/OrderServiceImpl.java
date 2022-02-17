@@ -9,10 +9,12 @@ import com.abc.system.repo.OrderRepo;
 import com.abc.system.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -34,28 +36,32 @@ public class OrderServiceImpl implements OrderService {
         Optional<Customer> name = customerRepo.findCustomerByName(dto.getCustomerName());
         if (name.isPresent()) {
             repo.save(mapper.map(dto, Order.class));
+        } else {
+            throw new ValidateException("Customer Name is Wrong!!");
         }
-        throw new ValidateException("Customer Name is Wrong!!");
-
     }
 
     @Override
     public void deleteOrder(String id) {
-
+        repo.deleteByOrderId(id);
     }
 
     @Override
-    public OrderDTO searchOrder(String id) {
-        return null;
+    public ArrayList<OrderDTO> getAllPlaceOrdersByCustomerName(String name) {
+        ArrayList<Order> all = repo.getAllByCustomerName(name);
+        return mapper.map(all, new TypeToken<ArrayList<OrderDTO>>() {
+        }.getType());
     }
 
     @Override
     public ArrayList<OrderDTO> getAllPlaceOrders() {
-        return null;
+        List<Order> all = repo.findAll();
+        return mapper.map(all, new TypeToken<ArrayList<OrderDTO>>() {
+        }.getType());
     }
 
     @Override
     public void updateOrder(OrderDTO dto) {
-
+        repo.save(mapper.map(dto, Order.class));
     }
 }

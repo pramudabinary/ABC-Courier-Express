@@ -15,7 +15,7 @@ public interface OrderService {
 
     void deleteOrder(String id);
 
-    OrderDTO searchOrder(String id);
+    ArrayList<OrderDTO> getAllPlaceOrdersByCustomerName(String name);
 
     ArrayList<OrderDTO> getAllPlaceOrders();
 

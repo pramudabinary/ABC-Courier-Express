@@ -34,6 +34,9 @@ public class Order implements SuperEntity {
     @Column(name = "receiver_name")
     private String receiverName;
 
+    @Column(name = "receiver_address")
+    private String receiverAddress;
+
     @Column(name = "parcel_weight")
     private String parcelWeight;
 }

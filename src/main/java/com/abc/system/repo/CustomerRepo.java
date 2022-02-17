@@ -12,7 +12,7 @@ import java.util.Optional;
  **/
 
 @Repository
-public interface CustomerRepo extends JpaRepository<Customer, String> {
+public interface CustomerRepo extends JpaRepository<Customer, Long> {
 
     Optional<Customer> findCustomerByName(String name);
 }

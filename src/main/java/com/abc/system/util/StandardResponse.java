@@ -18,5 +18,5 @@ public class StandardResponse {
 
     private String code;
     private String message;
-    private Object date;
+    private Object data;
 }

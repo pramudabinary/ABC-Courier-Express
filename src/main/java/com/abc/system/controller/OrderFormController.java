@@ -10,6 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
  * @since 2/15/22
@@ -26,11 +28,6 @@ public class OrderFormController {
     @PostMapping(path = "/place-order",
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity placeOrder(@RequestBody OrderDTO dto) {
-        if (dto.getCustomerName().trim().length() <= 0) {
-            throw new NotFoundException("Customer Name Can not be Empty");
-        } else if (dto.getParcelWeight().trim().length() <= 0) {
-            throw new NotFoundException("Parcel Weight Can not be Empty");
-        }
         service.placeOrder(dto);
         return new ResponseEntity
                 (new StandardResponse("201", "Done", dto), HttpStatus.CREATED);
@@ -55,6 +52,12 @@ public class OrderFormController {
         service.deleteOrder(order_id);
         return new ResponseEntity
                 (new StandardResponse("200", "Done", null), HttpStatus.OK);
+    }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity getAllCustomers(String name) {
+        ArrayList<OrderDTO> list = service.getAllPlaceOrdersByCustomerName(name);
+        return new ResponseEntity(new StandardResponse("200", "Done", list), HttpStatus.OK);
     }
 
 }

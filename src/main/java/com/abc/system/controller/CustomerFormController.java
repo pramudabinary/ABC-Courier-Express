@@ -26,11 +26,21 @@ public class CustomerFormController {
     @PostMapping(path = "/register",
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity registerCustomer(@RequestBody CustomerDTO dto) {
-        if (dto.getCode().trim().length() <= 0) {
-            throw new NotFoundException("Customer ID Can not be Empty");
+        if (dto.getName().trim().length() <= 0) {
+            throw new NotFoundException("Customer Name Can not be Empty");
         }
         service.registerCustomer(dto);
         return new ResponseEntity(new StandardResponse("201", "Done", dto), HttpStatus.CREATED);
+    }
+
+    @PutMapping(path = "/update",
+            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity updateCustomer(@RequestBody CustomerDTO dto) {
+        if (dto.getName().trim().length() <= 0) {
+            throw new NotFoundException("Customer Name Can not be Empty");
+        }
+        service.updateCustomer(dto);
+        return new ResponseEntity(new StandardResponse("200", "Done", dto), HttpStatus.CREATED);
     }
 
 }

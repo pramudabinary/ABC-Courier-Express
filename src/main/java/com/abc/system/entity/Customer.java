@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
@@ -23,12 +21,26 @@ import javax.persistence.Table;
 public class Customer implements SuperEntity {
 
     @Id
-    private String code;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_code")
+    private long code;
+
+    @Column(name = "Customer_name")
     private String name;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "gender")
     private String gender;
+
+    @Column(name = "contact")
     private String contact;
+
+    @Column(name = "password")
     private String password;
 
 }
