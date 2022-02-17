@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
-
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
  * @since 2/13/22
@@ -16,7 +14,7 @@ import java.io.Serializable;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginRequestDTO implements Serializable {
+public class LoginRequestDTO {
 
     private String username;
     private String password;

@@ -17,12 +17,13 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@Table(name = "order_table")
 public class Order implements SuperEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
-    private String orderId;
+    private long orderId;
 
     @Column(name = "customer_name")
     private String customerName;

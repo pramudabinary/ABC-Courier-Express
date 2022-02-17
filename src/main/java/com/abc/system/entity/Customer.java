@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
@@ -18,6 +19,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Entity
+@Table(name = "customer_table")
 public class Customer implements SuperEntity {
 
     @Id

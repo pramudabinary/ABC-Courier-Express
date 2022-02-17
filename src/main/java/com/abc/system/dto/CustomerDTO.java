@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
-
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
  * @since 2/12/22
@@ -16,7 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Setter
 @Getter
-public class CustomerDTO implements Serializable {
+public class CustomerDTO {
 
     private String code;
     private String name;

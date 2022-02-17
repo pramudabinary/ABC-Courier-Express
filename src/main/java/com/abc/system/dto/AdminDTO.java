@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
-
 /**
  * @author Pramuda Liyanage <pramudatharika@gmail.com>
  * @since 2/13/22
@@ -16,7 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Setter
 @Getter
-public class AdminDTO implements Serializable {
+public class AdminDTO {
 
     private String id;
     private String name;
